@@ -32,8 +32,8 @@ public class Reservation {
     private Integer cost;
 
     @ManyToOne
-    @JoinColumn(name = "host")
-    private User host;
+    @JoinColumn(name = "guest")
+    private User guest;
 
     @Enumerated(EnumType.STRING)
     private ReservationStatus status;
