@@ -6,6 +6,9 @@ import com.waybnb.users.entities.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "accommodations")
@@ -37,5 +40,8 @@ public class Accommodation {
 
     @Column
     private Float score;
+
+    @ManyToMany(mappedBy = "favoriteAccommodations")
+    private Set<User> likedByUsers = new HashSet<>();
 
 }

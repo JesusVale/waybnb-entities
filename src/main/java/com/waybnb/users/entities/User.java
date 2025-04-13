@@ -1,9 +1,11 @@
 package com.waybnb.users.entities;
 
+import com.waybnb.accomodations.entities.Accommodation;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @Entity
@@ -26,5 +28,13 @@ public class User {
 
     @Column
     private String photo;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_favorites",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "accommodation_id")
+    )
+    private Set<Accommodation> favoriteAccommodations;
 
 }
