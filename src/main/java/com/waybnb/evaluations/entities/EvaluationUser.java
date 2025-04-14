@@ -31,4 +31,9 @@ public class EvaluationUser {
     @Column
     private String comment;
 
+    @PrePersist
+    protected void onCreate() {
+        this.date = LocalDate.now();
+    }
+
 }
